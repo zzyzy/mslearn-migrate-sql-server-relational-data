@@ -57,7 +57,7 @@ GO
 '@
 
 Invoke-Sqlcmd `
-  -QueryTimeout 0 `
+  -QueryTimeout 300 `
   -ServerInstance . `
   -UserName $username `
   -Password $password `
