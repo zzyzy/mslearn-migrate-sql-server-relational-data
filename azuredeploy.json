@@ -181,28 +181,6 @@
                           "SQLAuthUpdatePassword": "[parameters('sourceSqlAdminPassword')]"
                       }
                   }
-              },
-              {
-                  "apiVersion": "2017-12-01",
-                  "type": "extensions",
-                  "name": "CustomScriptExtension",
-                  "location": "[variables('location')]",
-                  "dependsOn": [
-                      "[concat('Microsoft.Compute/virtualMachines/', variables('sourceServerName'))]",
-                      "[concat('Microsoft.Compute/virtualMachines/', concat(variables('sourceServerName'),'/extensions/SqlIaasExtension'))]"
-                  ],
-                  "properties": {
-                      "publisher": "Microsoft.Compute",
-                      "type": "CustomScriptExtension",
-                      "typeHandlerVersion": "1.9",
-                      "autoUpgradeMinorVersion": true,
-                      "settings": {
-                          "fileUris": "[variables('scriptFiles')]"
-                      },
-                      "protectedSettings": {
-                          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './', variables('scriptLocation'), ' ', variables('scriptParameters'))]"
-                      }
-                  }
               }
           ]
       },
